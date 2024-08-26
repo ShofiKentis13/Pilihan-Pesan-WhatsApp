@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Jawaban</title>
+</head>
+<body>
+    <h2>Pilih Jawaban Anda</h2>
+    
+    <form id="responseForm">
+        <input type="radio" id="ikut" name="response" value="Saya ikut." required>
+        <label for="ikut">Ikut</label><br>
+        
+        <input type="radio" id="tidakIkut" name="response" value="Saya tidak ikut.">
+        <label for="tidakIkut">Tidak Ikut</label><br>
+        
+        <input type="radio" id="diam" name="response" value="Saya memilih diam.">
+        <label for="diam">Diam</label><br><br>
+        
+        <button type="button" onclick="sendWhatsAppMessage()">Kirim Jawaban</button>
+    </form>
+
+    <script>
+        function sendWhatsAppMessage() {
+            var selectedOption = document.querySelector('input[name="response"]:checked').value;
+            var whatsappGroupLink = "https://chat.whatsapp.com/Gh3b2XXlW9o8G5VlGBxZug"; // Ganti dengan link grup WhatsApp Anda
+
+            var whatsappURL = "https://api.whatsapp.com/send?text=" + encodeURIComponent(selectedOption) + "&url=" + encodeURIComponent(whatsappGroupLink);
+            
+            window.open(whatsappURL, "_blank");
+        }
+    </script>
+</body>
+</html>
+
+
